@@ -39,12 +39,13 @@ export const minimax = (board: Board, player: Player): { index: number | null; s
   const availableMoves = getAvailableMoves(board);
   const winner = checkWinner(board);
 
-  if (winner === 'O') {
-    return { index: null, score: 1 };
-  } else if (winner === 'X') {
-    return { index: null, score: -1 };
-  } else if (winner === 'draw') {
-    return { index: null, score: 0 };
+  switch (winner) {
+    case 'O':
+      return { index: null, score: 1 };
+    case 'X':
+      return { index: null, score: -1 };
+    case 'draw':
+      return { index: null, score: 0 };
   }
 
   const moves = [];
