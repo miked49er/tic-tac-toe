@@ -9,20 +9,6 @@ export default function RootLayout() {
           headerShown: false,
         }}
       />
-      <Stack.Screen
-        name="TicTacToe"
-        options={{
-          headerTitle: 'Tic Tac Toe',
-          headerTitleAlign: 'center',
-        }}
-      />
-      <Stack.Screen
-        name="GameOver"
-        options={{
-          headerTitle: 'Game Over',
-          headerTitleAlign: 'center',
-        }}
-      />
     </Stack>
   );
 }

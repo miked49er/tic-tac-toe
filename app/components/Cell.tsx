@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { Player } from '../util/game';
+import { Player } from '@/util/game';
 
 interface CellProps {
   player: Player;

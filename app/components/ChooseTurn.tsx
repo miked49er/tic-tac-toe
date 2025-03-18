@@ -1,25 +1,19 @@
-import { Stack, useRouter } from 'expo-router';
+import { Stack } from 'expo-router';
 import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 
-const ChooseTurn = () => {
-  const router = useRouter();
+interface ChooseTurnProps {
+  setPlayerFirst: (value: boolean) => void;
+}
 
-  const handleChooseFirst = () => {
-    router.push({ pathname: '/TicTacToe', params: { playerFirst: 'true' } });
-  };
-
-  const handleChooseSecond = () => {
-    router.push({ pathname: '/TicTacToe', params: { playerFirst: 'false' } });
-  };
-
+const ChooseTurn = ({ setPlayerFirst }: ChooseTurnProps) => {
   return (
     <View style={styles.container}>
       <Stack.Screen options={{ headerTitle: 'Choose Your Turn' }} />
       <Text style={styles.title}>Would you like to go first?</Text>
-      <Button title="Yes" onPress={handleChooseFirst} />
+      <Button title="Yes" onPress={() => setPlayerFirst(true)} />
       <View style={styles.spacer} />
-      <Button title="No" onPress={handleChooseSecond} />
+      <Button title="No" onPress={() => setPlayerFirst(false)} />
     </View>
   );
 };

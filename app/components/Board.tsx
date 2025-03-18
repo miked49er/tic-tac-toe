@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import Cell from './Cell';
-import { Board as BoardType } from '../../util/game';
+import { Board as BoardType } from '@/util/game';
 
 interface BoardProps {
   board: BoardType;

@@ -1,36 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
-import Board from './components/Board';
-import { Board as BoardType, checkWinner, getComputerMove, Player } from '../util/game';
-import { useLocalSearchParams } from 'expo-router/build/hooks';
-import { useRouter } from 'expo-router';
+import Board from '@/app/components/Board';
+import { Board as BoardType, checkWinner, getComputerMove, Player } from '@/util/game';
 
-interface TicTacToeRouteParams {
-  playerFirst?: string;
+interface TicTacToeProps {
+  playerFirst: boolean;
+  setWinner: (player: Player) => void;
+  onGameOver: () => void;
 }
 
-const TicTacToe = () => {
+const TicTacToe = ({ playerFirst, setWinner, onGameOver }: TicTacToeProps) => {
   const [board, setBoard] = useState<BoardType>(Array(9).fill(null));
   const [playerTurn, setPlayerTurn] = useState<Player>('X');
-  const [gameOver, setGameOver] = useState(false);
-  const [winner, setWinner] = useState<Player>(null);
-  const { playerFirst } = useLocalSearchParams() as TicTacToeRouteParams;
-  const router = useRouter();
 
   useEffect(() => {
-    if (playerFirst === 'false') {
+    if (!playerFirst) {
       computerMove(board);
     }
   }, [playerFirst]);
 
-  useEffect(() => {
-    if (gameOver) {
-      router.push({ pathname: '/GameOver', params: { winner: winner } });
-    }
-  }, [gameOver]);
-
   const handleCellPress = (index: number) => {
-    if (board[index] || gameOver) return;
+    if (board[index]) return;
 
     const newBoard = [...board];
     newBoard[index] = playerTurn;
@@ -38,7 +28,7 @@ const TicTacToe = () => {
     const result = checkWinner(newBoard);
     if (result) {
       setWinner(result);
-      setGameOver(true);
+      onGameOver();
       return;
     }
     setPlayerTurn(playerTurn === 'X' ? 'O' : 'X');
@@ -56,7 +46,7 @@ const TicTacToe = () => {
       const result = checkWinner(newBoard);
       if (result) {
         setWinner(result);
-        setGameOver(true);
+        onGameOver();
         return;
       }
       setPlayerTurn('X');
