@@ -11,7 +11,7 @@ interface TicTacToeProps {
 
 const TicTacToe = ({ playerFirst, setWinner, onGameOver }: TicTacToeProps) => {
   const [board, setBoard] = useState<BoardType>(Array(9).fill(null));
-  const [playerTurn, setPlayerTurn] = useState<Player>('X');
+  const [playerTurn, setPlayerTurn] = useState<Player>(playerFirst ? 'X' : 'O');
 
   useEffect(() => {
     if (!playerFirst) {

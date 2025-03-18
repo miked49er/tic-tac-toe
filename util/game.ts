@@ -76,5 +76,9 @@ export const minimax = (board: Board, player: Player): { index: number | null; s
 };
 
 export const getComputerMove = (board: Board): number | null => {
+  if (getAvailableMoves(board).length === 9) {
+    // If the board is empty, the computer always takes the center
+    return 4;
+  }
   return minimax(board, 'O').index;
 };
