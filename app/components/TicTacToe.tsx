@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
 import Board from '@/app/components/Board';
 import { Board as BoardType, checkWinner, getComputerMove, Player } from '@/util/game';
+import { COMPUTER_MOVE_DELAY, GAME_OVER_DELAY } from '@/constants/timings';
 
 interface TicTacToeProps {
   playerFirst: boolean;
@@ -33,7 +34,9 @@ const TicTacToe: React.FC<TicTacToeProps> = ({ playerFirst, setWinner, onGameOve
     }
     setPlayerTurn(playerTurn === 'X' ? 'O' : 'X');
     if (playerTurn === 'X') {
-      computerMove(newBoard);
+      setTimeout(() => {
+        computerMove(newBoard);
+      }, COMPUTER_MOVE_DELAY);
     }
   };
 
@@ -46,7 +49,7 @@ const TicTacToe: React.FC<TicTacToeProps> = ({ playerFirst, setWinner, onGameOve
       const result = checkWinner(newBoard);
       if (result) {
         setWinner(result);
-        onGameOver();
+        setTimeout(onGameOver, GAME_OVER_DELAY);
         return;
       }
       setPlayerTurn('X');
