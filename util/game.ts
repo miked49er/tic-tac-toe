@@ -38,7 +38,7 @@ export const getAvailableMoves = (board: Board): number[] => {
 export const minimax = (
   board: Board,
   player: Player,
-  depth = 0
+  depth: number = -1
 ): { index: number | null; score: number } => {
   const availableMoves = getAvailableMoves(board);
   const winner = checkWinner(board);
