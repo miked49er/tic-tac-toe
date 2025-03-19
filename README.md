@@ -1,48 +1,46 @@
-# Welcome to your Expo app 👋
+# Tic Tac Toe - Expo App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is a Tic Tac Toe game built with Expo and React Native. It features an unbeatable AI opponent using the minimax algorithm.
 
-## Get started
+## Get Started
 
-1. Install dependencies
+These instructions will help you get a copy of the project up and running on your local machine for development and testing purposes.
 
-   ```bash
-   npm install
-   ```
+### Prerequisites
 
-2. Start the app
+-   [Node.js](https://nodejs.org/) (version 16 or higher recommended)
+-   [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/)
+-   [Expo CLI](https://docs.expo.dev/get-started/installation/) (`npm install -g expo-cli` or `yarn global add expo-cli`)
+-   An Android emulator, iOS simulator, or a physical device with the Expo Go app installed.
 
-   ```bash
-    npx expo start
-   ```
+### Installation
 
-In the output, you'll find options to open the app in a
+1.  Clone the repository: `git clone git@github.com:miked49er/tic-tac-toe.git`
+2.  Navigate to the project directory: `cd tic-tac-toe`
+3.  Install dependencies: `npm install`
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### Running the App
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+1.  Start the Expo development server: `npx expo start`
+2.  In the output, you'll find options to open the app in:
 
-## Get a fresh project
+   -   A development build (if you have one set up)
+   -   An Android emulator
+   -   An iOS simulator
+   -   Expo Go (a limited sandbox for trying out app development with Expo)
 
-When you're ready, run:
+### Running the Tests
 
-```bash
-npm run reset-project
-```
+1.  To run the unit tests, use the following command: `npm test`
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
+## Learn More
 
 To learn more about developing your project with Expo, look at the following resources:
 
 - [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
 - [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-## Join the community
+## Join the Community
 
 Join our community of developers creating universal apps.
 
