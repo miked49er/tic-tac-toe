@@ -8,7 +8,7 @@ interface ChooseTurnProps {
   setPlayerFirst: (value: boolean) => void;
 }
 
-const ChooseTurn = ({ setPlayerFirst }: ChooseTurnProps) => {
+const ChooseTurn: React.FC<ChooseTurnProps> = ({ setPlayerFirst }) => {
   return (
     <View style={styles.container}>
       <Stack.Screen options={{ headerTitle: 'Choose Your Turn' }} />

@@ -10,7 +10,7 @@ interface NewGameProps {
   setPlayerFirst: (value: boolean) => void;
 }
 
-const NewGame = ({ winner, setPlayerFirst }: NewGameProps) => {
+const NewGame: React.FC<NewGameProps> = ({ winner, setPlayerFirst }) => {
   let message = '';
   let bannerColor = '';
   switch (winner) {

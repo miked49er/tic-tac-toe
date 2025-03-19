@@ -8,7 +8,7 @@ interface ButtonProps {
   title: string;
 }
 
-const Button = ({ color, onPress, outlined = false, title }: ButtonProps) => {
+const Button: React.FC<ButtonProps> = ({ color, onPress, outlined = false, title }) => {
   const buttonStyles = styles(color);
   return (
     <Pressable

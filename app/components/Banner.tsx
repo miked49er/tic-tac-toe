@@ -7,7 +7,7 @@ interface BannerProps {
   message: string;
 }
 
-const Banner = ({ color, message, bgColor }: BannerProps) => {
+const Banner: React.FC<BannerProps> = ({ color, message, bgColor }) => {
   const bannerStyles = styles(bgColor, color);
   return (
     <View style={bannerStyles.banner}>

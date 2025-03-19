@@ -9,7 +9,7 @@ interface TicTacToeProps {
   onGameOver: () => void;
 }
 
-const TicTacToe = ({ playerFirst, setWinner, onGameOver }: TicTacToeProps) => {
+const TicTacToe: React.FC<TicTacToeProps> = ({ playerFirst, setWinner, onGameOver }) => {
   const [board, setBoard] = useState<BoardType>(Array(9).fill(null));
   const [playerTurn, setPlayerTurn] = useState<Player>(playerFirst ? 'X' : 'O');
 
