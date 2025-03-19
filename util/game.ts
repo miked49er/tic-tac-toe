@@ -35,15 +35,19 @@ export const getAvailableMoves = (board: Board): number[] => {
   }, []);
 };
 
-export const minimax = (board: Board, player: Player): { index: number | null; score: number } => {
+export const minimax = (
+  board: Board,
+  player: Player,
+  depth = 0
+): { index: number | null; score: number } => {
   const availableMoves = getAvailableMoves(board);
   const winner = checkWinner(board);
 
   switch (winner) {
     case 'O':
-      return { index: null, score: 1 };
+      return { index: null, score: 10 - depth };
     case 'X':
-      return { index: null, score: -1 };
+      return { index: null, score: -10 + depth };
     case 'draw':
       return { index: null, score: 0 };
   }
@@ -52,7 +56,7 @@ export const minimax = (board: Board, player: Player): { index: number | null; s
   for (const move of availableMoves) {
     const newBoard = [...board];
     newBoard[move] = player;
-    const result = minimax(newBoard, player === 'O' ? 'X' : 'O');
+    const result = minimax(newBoard, player === 'O' ? 'X' : 'O', depth + 1);
     moves.push({ index: move, score: result.score });
   }
 
